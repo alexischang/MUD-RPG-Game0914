@@ -11,6 +11,7 @@ public class Item {
     private int againstAnimalOrDemon = 0;
     private boolean isWeapon = false;
 
+
     public boolean isWeapon() {
         return isWeapon;
     }
@@ -81,60 +82,67 @@ public class Item {
         return this.price;
     }
 
-    public void healingPotion() {
+    public Item healingPotion() {
         ability.setName("治療藥水");
         setUseable(true);
         ability.setHp(3);
         setPrice(3);
         setUseage("回復3點血量");
+        return this;
     }
 
-    public void powerIncreasePotion() {
+    public Item powerIncreasePotion() {
         ability.setName("力量增強藥水");
         ability.setStr(2);
         setUseable(false);
         setPrice(2);
         setUseage("+2力量，持續兩次攻擊，戰鬥結束後消失");
         setBuffTime(2);
+        return  this;
     }
 
-    public void defenceIncreasePotion() {
+    public Item defenceIncreasePotion() {
         ability.setName("防禦增強藥水");
         ability.setDef(2);
         setUseable(false);
         setPrice(2);
         setUseage("+2防禦，持續兩次攻擊，戰鬥結束後消失");
         setBuffTime(2);
+        return this;
     }
 
-    public void leather() {
+    public Item leather() {
         ability.setName("動物皮");
         setUseable(false);
         setPrice(1);
+        return  this;
     }
 
-    public void wolfLeg() {
+    public Item wolfLeg() {
         ability.setName("狼腿");
         setUseable(false);
         setPrice(1);
+        return  this;
     }
 
-    public void lionClaw() {
+    public Item lionClaw() {
         ability.setName("獅爪");
         setUseable(false);
         setPrice(1);
+        return  this;
     }
 
-    public void pork() {
+    public Item pork() {
         ability.setName("豬肉");
         ability.setHp(2);
         ability.setDef(-1);
         setUseable(true);
         setPrice(2);
         setUseage("回復2點血量，-1防禦");
+        return  this;
     }
 
-    public void amimalSlayerMark() {
+    public Item amimalSlayerMark() {
         ability.setName("動物屠殺者徽章");
         ability.setHit(1);
         ability.setStr(1);
@@ -144,27 +152,31 @@ public class Item {
         setUseage("與動物戰鬥時，+1攻擊力,+1命中");
         setPermanentBuff(true);
         setAgainstAnimalOrDemon(1);
+        return  this;
     }
 
-    public void heartOfGhost() {
+    public Item heartOfGhost() {
         ability.setName("幽魂之心");
         setUseable(false);
         setPrice(1);
+        return  this;
     }
 
-    public void wolfTooth() {
+    public Item wolfTooth() {
         ability.setName("狼牙");
         setUseable(false);
         setPrice(1);
+        return  this;
     }
 
-    public void glass() {
+    public Item glass() {
         ability.setName("玻璃");
         setUseable(false);
         setPrice(1);
+        return  this;
     }
 
-    public void demomSlayerMark() {
+    public Item demomSlayerMark() {
         ability.setName("惡魔屠殺者徽章");
         ability.setStr(1);
         ability.setHit(1);
@@ -174,6 +186,7 @@ public class Item {
         setUseage("與魔物戰鬥時，+1攻擊力,+1命中");
         setPermanentBuff(true);
         setAgainstAnimalOrDemon(2);
+        return  this;
     }
 
     public void printItem() {
@@ -188,4 +201,48 @@ public class Item {
     public String getUseage() {
         return useage;
     }
+
+    /**
+     * 更改的部分
+     */
+    public Item intelliIncreasePotion() {
+        ability.setName("智慧增強藥水");
+        setUseable(true);
+        ability.setIntelli(2);
+        setPrice(3);
+        setUseage("+2智慧 持續兩次攻擊，戰鬥結束後消失");
+        setBuffTime(2);
+        return  this;
+    }
+    public Item strongAcid() {
+        ability.setName("強酸");
+        setUseable(true);
+        ability.setStr(2);//怪物防禦力-2等於玩家攻擊+2
+        setPrice(4);
+        setUseage("怪物 防禦-2 持續三次攻擊，戰鬥結束後消失");
+        setBuffTime(3);
+        return  this;
+    }
+    public Item PowerBurst() {
+        ability.setName("力量爆發");
+        setUseable(true);
+        ability.setStr(3);
+        ability.setDef(-4);
+        setPrice(5);
+        setUseage("+3力量 -4防禦，持續兩次攻擊，戰鬥結束後消失");
+        setBuffTime(2);
+        return  this;
+    }
+    public Item WisdomBurst() {
+        ability.setName("智慧爆發");
+        setUseable(true);
+        ability.setIntelli(3);
+        ability.setHp(-2);
+        setPrice(4);
+        setUseage("+3智慧，持續兩次攻擊，戰鬥結束或者是效果結束後損失兩2滴血量，若血量歸0，則死亡");
+        setBuffTime(2);
+        return  this;
+    }
+
+
 }

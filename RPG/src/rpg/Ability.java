@@ -12,12 +12,13 @@ public class Ability {
     private int itemMaxmum = 0;
     private int weaponMaxmum = 0;
     private int armorMaxmum = 0;
-    private int con = 0;
+    private int con = 0; //負重
     private int equipmentWeight = 0;
     private int maxExp = 0;
     private String name;
     private int migDef =0; //week2 add 魔法防禦
     private int intelli =0; //week2 add 智慧
+    private int money=0;
     private ArrayList<Skill> skill = new ArrayList<Skill>(); //week2 技能陣列
 
 
@@ -199,6 +200,17 @@ public class Ability {
     public void addExp(int value) {
         exp += value;
     }
+    public void addIntetlli(int value) { //week2 角色升級智慧屬性＋2
+        intelli += value;
+    }
+
+    public void setMoney(int money) {
+        this.money=money;
+    }
+
+    public int getMoney() {
+        return money;
+    }
 
     public void lvUp() {
         LV++;
@@ -212,7 +224,7 @@ public class Ability {
                 "命中: " + getHit() + "\n" +
                 "防禦: " + getDef() + "\n";
     }
-
+    // 1每升一級所需經驗值為上個經驗值的兩倍，起始升級所需經驗值為10，升擊後血量、敏捷、力量、命中、防禦+2
     public void merge(Ability newAbility) {
         maxHp += newAbility.maxHp;
         hp += newAbility.hp;

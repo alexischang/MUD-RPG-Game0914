@@ -34,7 +34,7 @@ public class Animal extends Monster {
         ability.setHit(5);
         ability.setDex(4);
         ability.setExp(6);
-        ability.setLV(1); 
+        ability.setLV(1);
         ability.setMigDef(3); // 魔法防禦：3
         ability.setIntelli(2);// 智慧：2
         ability.setSkill(0, 0, 20, 0, 0); //技能
