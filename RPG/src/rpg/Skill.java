@@ -3,7 +3,7 @@ package rpg;
 public class Skill {
     private int id; //技能編號
     private SkillName name; //技能名字
-    private double probability; //技能施放機率
+    private int probability; //技能施放機率
     private int cdTime; //冷卻時間
     private int level; //等級
 
@@ -92,64 +92,64 @@ public class Skill {
         }
         return result;
     }
-    public int magicMissile(Character character){
-        int inteli = character.getAbility().getIntelli()+2;
-        return inteli;
-    }
+    // public int magicMissile(Character character){
+    //     int inteli = character.getAbility().getIntelli()+2;
+    //     return inteli;
+    // }
 
-    //火球術 (智慧 * 2)
-    public int fireBall(Character character){
-        int inteli = character.getAbility().getIntelli()*2;
-        return inteli;
-    }
+    // //火球術 (智慧 * 2)
+    // public int fireBall(Character character){
+    //     int inteli = character.getAbility().getIntelli()*2;
+    //     return inteli;
+    // }
 
-    //風刃術
-    public int windBladeJustsu(Character character){
-        int inteli = character.getAbility().getIntelli();
-        return inteli;
-    }
+    // //風刃術
+    // public int windBladeJustsu(Character character){
+    //     int inteli = character.getAbility().getIntelli();
+    //     return inteli;
+    // }
 
-    //爪擊 (力量＋2)
-    public int clawAttack (Character character){
-        int str = character.getAbility().getStr()+2;
-        return str;
-    }
+    // //爪擊 (力量＋2)
+    // public int clawAttack (Character character){
+    //     int str = character.getAbility().getStr()+2;
+    //     return str;
+    // }
 
-    //衝撞 (力量＋1)
-    public int ram(Character character){
-        int str = character.getAbility().getStr()+1;
-        return str;
-    }
+    // //衝撞 (力量＋1)
+    // public int ram(Character character){
+    //     int str = character.getAbility().getStr()+1;
+    //     return str;
+    // }
 
-    //輾壓 (防禦 +3)
-    public int runOver(Character character){
-        int def = character.getAbility().getDef()+3;
-        return def;
-    }
+    // //輾壓 (防禦 +3)
+    // public int runOver(Character character){
+    //     int def = character.getAbility().getDef()+3;
+    //     return def;
+    // }
 
-    //風刃 (智慧 + 1)
-    public int windBlade(Character character){
-        int inteli = character.getAbility().getIntelli()+1;
-        return inteli;
-    }
+    // //風刃 (智慧 + 1)
+    // public int windBlade(Character character){
+    //     int inteli = character.getAbility().getIntelli()+1;
+    //     return inteli;
+    // }
 
-    //招魂 (智慧 + 1)
-    public int conjuring(Character character){
-        int inteli = character.getAbility().getIntelli()+1;
-        return inteli;
-    }
+    // //招魂 (智慧 + 1)
+    // public int conjuring(Character character){
+    //     int inteli = character.getAbility().getIntelli()+1;
+    //     return inteli;
+    // }
 
-    //迷惑 (智慧 + 2)
-    public int enchanted(Character character){
-        int inteli = character.getAbility().getIntelli()+2;
-        return inteli;
-    }
+    // //迷惑 (智慧 + 2)
+    // public int enchanted(Character character){
+    //     int inteli = character.getAbility().getIntelli()+2;
+    //     return inteli;
+    // }
 
-    //全力斬擊 (力量 + 2)
-    public int fullyStrike(Character character){
-        int str = character.getAbility().getStr()+2;
-        return str;
-    }
+    // //全力斬擊 (力量 + 2)
+    // public int fullyStrike(Character character){
+    //     int str = character.getAbility().getStr()+2;
+    //     return str;
+    // }
     public void setId(int id){
         this.id=id;
     }
@@ -158,7 +158,7 @@ public class Skill {
         this.name= SkillName.valueOf(name);
     }
 
-    public void setProbability(double probability){
+    public void setProbability(int probability){
         this.probability=probability;
     }
     public void setCdTime(int cdTime){
@@ -167,10 +167,13 @@ public class Skill {
     public void setLevel(int level){
         this.level = level;
     }
+    public int getId(){
+        return id;
+    }
     public SkillName getName(){
         return name;
     }
-    public double getProbability(){
+    public int getProbability(){
         return probability;
     }
     public int getCdTime(){

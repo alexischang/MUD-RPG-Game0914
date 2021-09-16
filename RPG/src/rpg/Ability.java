@@ -21,7 +21,7 @@ public class Ability {
     private ArrayList<Skill> skill = new ArrayList<Skill>(); //week2 技能陣列
 
 
-    public void setSkill(int id, int name, double probability, int cdTime, int level){
+    public void setSkill( int id, int name, int probability, int cdTime, int level){
         Skill newSkill = new Skill();
         newSkill.setId(id);
         newSkill.setName(name);

@@ -25,9 +25,9 @@ public class Player extends Character {
         initialAbility.setCon(10 * initialAbility.getStr());
         initialAbility.setLV(1);
         initialAbility.setMaxExp(10);
-        initialAbility.setSkill( 8, 6, 1, 5, 2); 
-        initialAbility.setSkill( 9, 7, 1, 2, 1);  
-        initialAbility.setSkill( 10, 9, 1, 3, 1); 
+        initialAbility.setSkill( 1, 6, 1, 5, 2); 
+        initialAbility.setSkill( 2, 7, 1, 2, 1);  
+        initialAbility.setSkill( 3, 9, 1, 3, 1); 
         setAbility(initialAbility);
         positon = 0;  //起始位置在原點
     }
