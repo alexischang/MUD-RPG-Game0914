@@ -51,6 +51,7 @@ public class Monster extends Character {
             case 3:
                 animal.lion();
                 break;
+
         }
         return animal;
     }
@@ -65,6 +66,40 @@ public class Monster extends Character {
         bossList.add(demon);
         return bossList;
     }
+    public ArrayList<Monster> monsterList (){
+        int r = random.nextInt(6) + 1;
+        Animal animal = new Animal();
+        Demon demon = new Demon();
+        switch (r) {
+            case 1:
+                animal.wolf();
+                monsterList.add(animal);
+                break;
+            case 2:
+                animal.boar();
+                monsterList.add(animal);
+                break;
+            case 3:
+                animal.lion();
+                monsterList.add(animal);
+                break;
+            case 4:
+                demon.mountainDemon();
+                monsterList.add(demon);
+                break;
+            case 5:
+                demon.demonWolf();
+                monsterList.add(demon);
+                break;
+            case 6:
+                demon.celestialHuang();
+                monsterList.add(demon);
+                break;
+
+        }
+        return monsterList;
+    }
+
     //以上第二週新增
 
 

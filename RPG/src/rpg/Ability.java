@@ -12,7 +12,7 @@ public class Ability {
     private int itemMaxmum = 0;
     private int weaponMaxmum = 0;
     private int armorMaxmum = 0;
-    private int con = 0; //負重
+    private int con = 0;
     private int equipmentWeight = 0;
     private int maxExp = 0;
     private String name;
@@ -22,13 +22,14 @@ public class Ability {
     private ArrayList<Skill> skill = new ArrayList<Skill>(); //week2 技能陣列
 
 
-    public void setSkill( int id, int name, int probability, int cdTime, int level){
+    public void setSkill( int id, int name, int probability, int cdTime, int level, String info){
         Skill newSkill = new Skill();
         newSkill.setId(id);
         newSkill.setName(name);
         newSkill.setProbability(probability);
         newSkill.setCdTime(cdTime);
         newSkill.setLevel(level);
+        newSkill.setInfo(info);
         skill.add(newSkill);
     }
     public ArrayList<Skill> getSkill(){
@@ -58,7 +59,6 @@ public class Ability {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public int getMaxHp() {
         return maxHp;
@@ -197,11 +197,12 @@ public class Ability {
         hit += value;
     }
 
+    public void addIntelli(int value) {
+        intelli += value;
+    }
+
     public void addExp(int value) {
         exp += value;
-    }
-    public void addIntetlli(int value) { //week2 角色升級智慧屬性＋2
-        intelli += value;
     }
 
     public void setMoney(int money) {
@@ -220,11 +221,13 @@ public class Ability {
         return "各項素質:\n" +
                 "血量(當前/最大): " + getHp() + "/" + getMaxHp() + "\n" +
                 "力量: " + getStr() + "\n" +
+                "智慧: " + getIntelli() + "\n" +
                 "敏捷: " + getDex() + "\n" +
                 "命中: " + getHit() + "\n" +
-                "防禦: " + getDef() + "\n";
+                "防禦: " + getDef() + "\n" +
+                "魔法防禦: " + getMigDef() + "\n";
     }
-    // 1每升一級所需經驗值為上個經驗值的兩倍，起始升級所需經驗值為10，升擊後血量、敏捷、力量、命中、防禦+2
+
     public void merge(Ability newAbility) {
         maxHp += newAbility.maxHp;
         hp += newAbility.hp;
@@ -232,6 +235,8 @@ public class Ability {
             hp = maxHp;
         }
         str += newAbility.str;
+        intelli += newAbility.intelli;
+        migDef += newAbility.migDef;
         dex += newAbility.dex;
         def += newAbility.def;
         hit += newAbility.hit;
@@ -242,6 +247,8 @@ public class Ability {
     public void unMerge(Ability newAbility) {
         hp -= newAbility.hp;
         str -= newAbility.str;
+        intelli -= newAbility.intelli;
+        migDef -= newAbility.migDef;
         dex -= newAbility.dex;
         def -= newAbility.def;
         hit -= newAbility.hit;

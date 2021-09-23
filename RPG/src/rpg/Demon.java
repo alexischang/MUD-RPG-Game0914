@@ -22,8 +22,8 @@ public class Demon extends Monster {
         ability.setLV(1);
         ability.setMigDef(2); // 魔法防禦：2
         ability.setIntelli(2);// 智慧：2
-        ability.setSkill( 0, 0, 10, 0, 0);
-        ability.setSkill( 3, 3, 10, 0, 0);
+        ability.setSkill( 0, 0, 10, 0, 0, "傷害: 力量+2");
+        ability.setSkill( 3, 3, 10, 0, 0,"傷害: 智慧+1");
         Item item = new Item();
         item.wolfTooth();
         getDropItems().add(item);
@@ -40,8 +40,8 @@ public class Demon extends Monster {
         ability.setLV(1);
         ability.setMigDef(3); // 魔法防禦：3
         ability.setIntelli(4);// 智慧：4
-        ability.setSkill( 4, 4, 20, 0, 0);
-        ability.setSkill( 5, 5, 5, 0, 0);
+        ability.setSkill( 4, 4, 20, 0, 0,"傷害: 智慧+1");
+        ability.setSkill( 5, 5, 5, 0, 0,"傷害: 智慧+2");
         Item item = new Item();
         item.leather();
         getDropItems().add(item);
@@ -58,8 +58,8 @@ public class Demon extends Monster {
         ability.setLV(1);
         ability.setMigDef(4); // 魔法防禦：4
         ability.setIntelli(5);// 智慧：5
-        ability.setSkill( 4, 4, 20, 0, 0);
-        ability.setSkill( 5, 5, 5, 0, 0);
+        ability.setSkill( 4, 4, 20, 0, 0,"傷害: 智慧+1");
+        ability.setSkill( 5, 5, 5, 0, 0,"傷害: 智慧+2");
         Item item = new Item();
         item.glass();
         getDropItems().add(item);
@@ -76,9 +76,9 @@ public class Demon extends Monster {
         ability.setLV(2);
         ability.setMigDef(4); // 魔法防禦：4
         ability.setIntelli(5);// 智慧：5
-        ability.setSkill( 4, 4, 20, 0, 0);
-        ability.setSkill( 5, 5, 5, 0, 0);
-        ability.setSkill( 8, 8, 10, 0, 0);
+        ability.setSkill( 4, 4, 20, 0, 0,"傷害: 智慧+1");
+        ability.setSkill( 5, 5, 5, 0, 0,"傷害: 智慧+2");
+        ability.setSkill( 8, 8, 10, 0, 0,"傷害: 力量+2");
         Item item = new Item();
         item.demomSlayerMark();
         getDropItems().add(item);

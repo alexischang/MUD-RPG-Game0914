@@ -43,6 +43,7 @@ public class Shop {
             itemList.add(temp);
         }
     }
+
     ////買商品
     public void buy(Player player){
         Scanner sc=new Scanner(System.in);
@@ -53,7 +54,7 @@ public class Shop {
         buyItem=itemList.get(buyNum-1);
         if(buyItem.getPrice()<=player.getAbility().getMoney()) {
             System.out.println("購買成功");
-            player.ability.setMoney(-1 * (buyItem.getPrice()));
+            player.ability.setMoney(player.ability.getMoney()-1 * (buyItem.getPrice()));
             player.getItem(buyItem);
         }else{
             System.out.println("金額不足無法購買");
@@ -63,20 +64,42 @@ public class Shop {
     public void sell(Player player){
         Scanner sc=new Scanner(System.in);
         System.out.println("錢包:"+player.getAbility().getMoney());
-        System.out.println("請輸入販賣商品編號");
-        int buyNum=sc.nextInt();
-        Item buyItem= new Item();
-        buyItem=itemList.get(buyNum-1);
-        if(buyItem.getPrice()<=player.getAbility().getMoney()) {
-            System.out.println("購買成功");
-            player.ability.setMoney(-1 * (buyItem.getPrice()));
-            player.getItem(buyItem);
+        if(player.getBag().size()>0) {
+            player.supply();
+            System.out.println("請輸入販賣商品編號");
+            int sellNum=sc.nextInt();
+            System.out.println("販賣成功");
+            Item sellItem=new Item();
+            sellItem=player.getBag().get(sellNum-1);
+            player.ability.setMoney(player.ability.getMoney()+sellItem.getPrice());
+            System.out.println("錢包:"+player.getAbility().getMoney());
+            player.removeBag(sellNum);
         }else{
-            System.out.println("金額不足無法購買");
+            System.out.println("背包內無可販賣商品");
         }
     }
 }
 
+//case 5:
+//        System.out.println("遇到流浪商人 ");
+//        boolean b=true;
+//        while (b) {
+//        Shop shop = new Shop();
+//        System.out.println("1.購買商品 2.販賣  3.離開商店");
+//        int input = sc.nextInt();
+//        switch (input) {
+//        case 1:
+//        shop.printAllItem();
+//        shop.buy(newPlayer);
+//        break;
+//        case 2:
+//        shop.sell(newPlayer);
+//        break;
+//        case 3:
+//        b=false;
+//        break;
+//        }
+//        }
 
 
 

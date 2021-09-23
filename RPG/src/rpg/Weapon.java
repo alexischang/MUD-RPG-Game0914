@@ -13,6 +13,7 @@ public class Weapon extends Item {
         this.ability.setEquipmentWeight(10);
         this.setInitial(true);
         ability.setName("劍");
+        this.ability.setIntelli(-1);
     }
 
     public void axe() {
@@ -20,6 +21,7 @@ public class Weapon extends Item {
         this.ability.setEquipmentWeight(15);
         this.setInitial(true);
         ability.setName("斧頭");
+        this.ability.setIntelli(-3);
     }
 
     public void wand() {
@@ -27,6 +29,7 @@ public class Weapon extends Item {
         this.ability.setEquipmentWeight(7);
         this.setInitial(true);
         ability.setName("法杖");
+        this.ability.setIntelli(5);
     }
 
     public void bow() {
@@ -34,6 +37,7 @@ public class Weapon extends Item {
         this.ability.setEquipmentWeight(9);
         this.setInitial(false);
         ability.setName("弓箭");
+        this.ability.setIntelli(0);
     }
 
     public void setInitial(boolean initial) {
@@ -45,6 +49,6 @@ public class Weapon extends Item {
     }
 
     public void printItem() {
-        System.out.println(ability.getName() + " 攻擊力: " + ability.getStr() + " 重量: " + ability.getEquipmentWeight());
+        System.out.println(ability.getName() + " 攻擊力: " + ability.getStr() + " 重量: " + ability.getEquipmentWeight()+ " 魔法攻擊力: " + ability.getIntelli());
     }
 }

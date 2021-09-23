@@ -7,6 +7,7 @@ public class Skill {
     private int cdTime; //冷卻時間
     private int initCdTime; //初始冷卻時間
     private int level; //等級
+    private String info; //介紹
 
     public enum SkillName{
         爪擊,
@@ -192,6 +193,12 @@ public class Skill {
     }
     public void resetCdTime(){
         cdTime = initCdTime;
+    }
+    public String getInfo(){
+        return info;
+    }
+    public void setInfo(String info){
+        this.info = info;
     }
 }
 

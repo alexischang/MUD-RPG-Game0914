@@ -20,7 +20,7 @@ public class Animal extends Monster {
         ability.setLV(1);
         ability.setMigDef(2); // 魔法防禦：2
         ability.setIntelli(1); // 智慧：1
-        ability.setSkill( 0, 0, 20, 0, 0); //技能
+        ability.setSkill( 0, 0, 20, 0, 0,"傷害: 力量+2"); //技能
         Item item = new Item();
         item.wolfLeg();
         getDropItems().add(item);
@@ -37,7 +37,7 @@ public class Animal extends Monster {
         ability.setLV(1);
         ability.setMigDef(3); // 魔法防禦：3
         ability.setIntelli(2);// 智慧：2
-        ability.setSkill(0, 0, 20, 0, 0); //技能
+        ability.setSkill(0, 0, 20, 0, 0,"傷害: 力量+2"); //技能
         Item item = new Item();
         item.lionClaw();
         getDropItems().add(item);
@@ -54,7 +54,7 @@ public class Animal extends Monster {
         ability.setLV(1);
         ability.setMigDef(4); // 魔法防禦：4
         ability.setIntelli(1);// 智慧：1
-        ability.setSkill( 1, 1, 20, 0, 0); //技能
+        ability.setSkill( 1, 1, 20, 0, 0,"傷害: 力量+1"); //技能
         Item item = new Item();
         item.pork();
         getDropItems().add(item);
@@ -71,8 +71,8 @@ public class Animal extends Monster {
         ability.setLV(2);
         ability.setMigDef(6); // 魔法防禦：6
         ability.setIntelli(1);// 智慧：1
-        ability.setSkill(1, 1, 20, 0, 0); //技能
-        ability.setSkill(2, 2, 10, 0, 0); //技能
+        ability.setSkill(1, 1, 20, 0, 0,"傷害: 力量+1"); //技能
+        ability.setSkill(2, 2, 10, 0, 0,"防禦 +3"); //技能
         Item item = new Item();
         item.amimalSlayerMark();
         getDropItems().add(item);
