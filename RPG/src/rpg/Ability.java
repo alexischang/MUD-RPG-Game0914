@@ -234,24 +234,24 @@ public class Ability {
         if (hp > maxHp) {
             hp = maxHp;
         }
-        str += newAbility.str;
-        intelli += newAbility.intelli;
-        migDef += newAbility.migDef;
-        dex += newAbility.dex;
-        def += newAbility.def;
-        hit += newAbility.hit;
+        str += newAbility.getStr();
+        intelli += newAbility.getIntelli();
+        migDef += newAbility.getMigDef();
+        dex += newAbility.getDex();
+        def += newAbility.getDef();
+        hit += newAbility.getHit();
         equipmentWeight += newAbility.equipmentWeight;
         setCon(str * 10);
     }
 
     public void unMerge(Ability newAbility) {
-        hp -= newAbility.hp;
-        str -= newAbility.str;
-        intelli -= newAbility.intelli;
-        migDef -= newAbility.migDef;
-        dex -= newAbility.dex;
-        def -= newAbility.def;
-        hit -= newAbility.hit;
+//        hp -= newAbility.hp;
+        str -= newAbility.getStr();
+        intelli -= newAbility.getIntelli();
+        migDef -= newAbility.getMigDef();
+        dex -= newAbility.getDex();
+        def -= newAbility.getDef();
+        hit -= newAbility.getHit();
         equipmentWeight -= newAbility.equipmentWeight;
         setCon(str * 10);
     }

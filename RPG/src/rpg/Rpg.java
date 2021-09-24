@@ -21,20 +21,21 @@ public class Rpg {
         Scanner sc = new Scanner(System.in);
         Fight fight = new Fight();
         Monster monster = new Monster();
+        Shop shop = new Shop();
 
         //角色命名
         Player newPlayer = new Player();
         
         System.out.println("歡迎進入這個冒險國度");
-//        Thread.sleep(1500);
+        Thread.sleep(1500);
         System.out.print("請告訴我你的名字是?  ->");
-//        Thread.sleep(1500);
+        Thread.sleep(1500);
         String name = sc.next();
         newPlayer.getAbility().setName(name);
         System.out.println("你好 " + newPlayer.getAbility().getName() + " 請享受你的冒險");
-//        Thread.sleep(1500);
+        Thread.sleep(1500);
         System.out.println("這是一點小心意 希望對你有幫助");
-//        Thread.sleep(1500);
+        Thread.sleep(1500);
         System.out.println();
 
         newPlayer.wearWeapon(chooseWeapon()); //穿上武器
@@ -42,7 +43,7 @@ public class Rpg {
         System.out.println();
         System.out.println();
         System.out.println("~~~請享受你的冒險~~~");
-//        Thread.sleep(1500);
+        Thread.sleep(1500);
         System.out.println();
         System.out.println();
 
@@ -69,18 +70,21 @@ public class Rpg {
             switch (kind){
                 case 森林:
                     System.out.println("你已進入地圖：森林~ 暗藏危險動物");
+                    shop.setIntoShop(false);  //是否進入過商店
                     Thread.sleep(1500);
                     System.out.println();
                     System.out.println();
                     break;
                 case 深淵:
                     System.out.println("你已進入地圖：深淵~ 有著奇怪的惡魔盤據");
+                    shop.setIntoShop(false);  //是否進入過商店
                     Thread.sleep(1500);
                     System.out.println();
                     System.out.println();
                     break;
                 case 煉獄森林:
                     System.out.println("你已進入地圖：煉獄森林~ 有惡魔也有動物的party～我們懷念你");
+                    shop.setIntoShop(false);  //是否進入過商店
                     Thread.sleep(1500);
                     System.out.println();
                     System.out.println();
@@ -90,6 +94,7 @@ public class Rpg {
                     break;
             }
             if(newPlayer.isDead()){
+                shop.setIntoShop(false);  //是否進入過商店
                 newPlayer.setPositon(0);//步數重算
                 newPlayer = new Player(); //角色回到選完武器的初始
                 newPlayer.ability.setName(name);
@@ -102,12 +107,10 @@ public class Rpg {
             
             //進入地圖
             while (true){
-                
                 while(true){
                     if(newPlayer.isDead()){
                         break;
                     }
-
                     System.out.println("選擇行動");
                     System.out.println("1.繼續冒險");
                     System.out.println("2.顯示角色狀態 + 顯示裝備");
@@ -143,9 +146,8 @@ public class Rpg {
                             System.out.println();
                             System.out.println("背包說明：");
                             System.out.println("請先選擇哪個道具(輸入數字)1~" + + newPlayer.getBag().size() +"不使用就輸入0");
-                            int selectInt = sc.nextInt();
+                            int selectInt = sc.nextInt();;
                             System.out.println();
-
                             if(selectInt == 0){
                                 System.out.println("輸入exit 來關閉背包");
                             }else{
@@ -190,7 +192,7 @@ public class Rpg {
                         while(true){ //boss戰鬥
                             chooseOnFightWithBoss(newPlayer, boss, fight);
                             if(boss.isDead() || newPlayer.isDead()){ //怪物或角色一方死亡
-                                fight.overFight(newPlayer, boss);
+//                                fight.overFight(newPlayer, boss);
                                 break;
                             }else{
                                 System.out.println("戰鬥選擇功能正常");
@@ -204,7 +206,7 @@ public class Rpg {
                         while(true){ //boss戰鬥
                             chooseOnFightWithBoss(newPlayer, boss, fight);
                             if(boss.isDead() || newPlayer.isDead()){ //怪物或角色一方死亡
-                                fight.overFight(newPlayer, boss);
+//                                fight.overFight(newPlayer, boss);
                                 break;
                             }else{
                                 System.out.println("戰鬥選擇功能正常");
@@ -218,7 +220,7 @@ public class Rpg {
                         while(true){ //boss戰鬥
                             chooseOnFightWithBoss(newPlayer, boss, fight);
                             if(boss.isDead() || newPlayer.isDead()){ //怪物或角色一方死亡
-                                fight.overFight(newPlayer, boss);
+//                                fight.overFight(newPlayer, boss);
                                 break;
                             }else{
                                 System.out.println("戰鬥選擇功能正常");
@@ -252,7 +254,11 @@ public class Rpg {
                 //事件
                 int event = Random(0, 5);
 //               event = sc.nextInt();// 測試用
-                
+
+                if(shop.isIntoShop){        //如果已經進入shop則重新選擇1-4
+                    event = Random(0, 4);
+                }
+
                 switch (event){
                     case 0://沒事發生
                         System.out.println();
@@ -279,7 +285,7 @@ public class Rpg {
                         System.out.println("遇到 " + monsterCase1.ability.getName() + " 雙方大眼瞪小眼 你要逃跑嗎? ");
                         newPlayer.setFighting(true);//因為道具效果需要戰鬥狀態才能用 角色狀態先切入為：戰鬥
 
-//                        Thread.sleep(1500);
+                        Thread.sleep(1500);
                         while(true){
                             chooseOnFight(newPlayer, monsterCase1, fight); //戰鬥選擇
                             //怪物或角色一方死亡 或逃跑成功 脫離戰鬥迴圈
@@ -436,7 +442,7 @@ public class Rpg {
                         System.out.println();
                         break;
                     case 5:
-                        Shop shop = new Shop();
+                        shop.setIntoShop(true);  //已進入過商店
                         System.out.println("遇到流浪商人 ");
                         Thread.sleep(1500);
                         boolean tf = true;
@@ -642,6 +648,7 @@ public class Rpg {
         }
 
     }
+
     //遇到怪物 每回合可以選擇 boss戰 不能逃跑
     public static void chooseOnFightWithBoss (Player newPlayer, Monster animal, Fight fight) throws InterruptedException{
         Scanner sc = new Scanner(System.in);
@@ -656,9 +663,9 @@ public class Rpg {
             case 2:
                 if(newPlayer.getBag().size() == 0){
                     System.out.println("背包裡面空空如也");
-//                    Thread.sleep(1500);
+                    Thread.sleep(1500);
                     System.out.println("還想用道具!? 認命戰鬥吧");
-//                    Thread.sleep(1500);
+                    Thread.sleep(1500);
                     fight.startFight(newPlayer, animal);
                     break;
                 }
@@ -697,6 +704,7 @@ public class Rpg {
         }
 
     }
+
     public enum Kind {
         森林,
         深淵,
@@ -704,5 +712,3 @@ public class Rpg {
     }
 
 }
-    
-

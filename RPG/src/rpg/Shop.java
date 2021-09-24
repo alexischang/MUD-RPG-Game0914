@@ -5,6 +5,18 @@ import java.util.Scanner;
 
 public class Shop {
     ArrayList<Item> itemList = new ArrayList<Item>();
+
+    boolean isIntoShop = false;
+
+    public boolean isIntoShop() {
+        return isIntoShop;
+    }
+
+    public void setIntoShop(boolean intoShop) {
+        isIntoShop = intoShop;
+    }
+
+
     public enum OptionType {
         i1(new Item().wolfLeg()),
         i2(new Item().lionClaw()),
